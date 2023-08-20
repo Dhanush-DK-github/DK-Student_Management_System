@@ -1,0 +1,97 @@
+
+.home-container{
+    text-align: center;
+    justify-content: center;
+    /* border: solid; */
+}
+
+.home-container .contents{
+    margin-top: 10%;
+    /* border: solid; */
+    font-family: "Roboto Slab", sans-serif;
+}
+
+.home-container .contents .welcome-title{
+    font-size: 25px;
+    font-weight: 600;
+    color: rgb(148, 30, 0);
+}
+
+.home-container .contents .sub-title{
+    margin-top: 20px;
+    font-size: 20px;
+    font-weight: 400;
+    color: rgb(0, 0, 0);
+    animation: animate 1.5s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+      opacity: 0;
+    }
+    50%{
+      opacity: 0.7;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+
+  .home-container .contents .buttons{
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        margin-top: 30px;
+        column-gap: 20px;
+  }
+
+  .home-container .contents .buttons button{
+    height: 40px;
+    width: 200px;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: #4070f4;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+
+  }
+
+  .home-container .contents .buttons button.list{
+    background-color:  #127157;
+    font-size: 16px;
+    font-weight: 400;
+
+  }
+
+  .home-container .contents .buttons button.add{
+    background-color:  #5bb335;
+    font-size: 16px;
+    font-weight: 400;
+
+  }
+  
+
+  .home-container .contents .buttons button.list:hover,
+  .home-container .contents .buttons button.add:hover{
+    background-color:  #041B15;
+    box-shadow: 0 0 20px rgba(241, 255, 47, 0.7);
+  }
+ 
+@media (max-width:500px){
+    .home-container .contents .welcome-title{
+        font-size: 15px;
+        font-weight: 600;
+        color: rgb(148, 30, 0);
+    }
+    .home-container .contents .buttons{
+        display: block;
+        text-align: center;
+        justify-content: center;
+        margin-top: 30px;
+        line-height: 65px;
+  }
+
+}

@@ -1,0 +1,52 @@
+		label.title{
+		    margin-top:0px; 
+		    padding: 0 10px;
+		    font-family: "Roboto", sans-serif;
+		}
+		.home-container .contents{
+		    margin-top: 5%;
+		}
+		.home-container .contents .sub-title{
+		    animation: none;
+		}
+		.contents {
+		  width: 100%;
+		  min-height: 450px;
+		  position: relative;
+		}
+		
+		.form {
+		  width: 50%;
+		  position: relative;
+		  padding-top:8px;
+		  margin-left: 25%;
+		  margin-right:25%;
+		
+		}
+		.form input{
+			border: 1px solid silver;
+		}
+		.button{
+			text-align: center;
+			justify-content: center;
+		}
+		.submit{
+			width:28%;
+			height:40px;
+			align-items:center;
+			font-size: 1.25rem;
+		}
+		@media (max-width:500px){
+			.home-container .contents{
+			    margin-top: 10%;
+			}
+			.form {
+			  width: 75%;
+			  margin-left: 12.5%;
+			  margin-right:12.5%;
+			
+			}
+			.submit{
+				width:50%;
+			}
+		}

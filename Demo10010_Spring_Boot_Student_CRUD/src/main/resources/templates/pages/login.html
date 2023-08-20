@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
+    <title>Student Management System - Login</title>
+    <link rel="stylesheet" href="/CSS/res_navStyle.css">
+    <link rel="stylesheet" href="/CSS/homeStyle.css">
+    <link rel="stylesheet" href="/CSS/loginStyle.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab|Roboto|Roboto Serif|Roboto Condensed">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+</head>
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="material-icons" id="icon" onclick="myFunction()">menu</i>
+        </label>
+        <div class="headTitle">
+        <label class="title">Student Management System</label>
+        </div>
+        <ul>
+            <li><a href="/home"><button class="home">Home</button></a></li>
+            <li><a href="/newStudent"><button class="new">Add Student</button></a></li>
+            <li><a href="/listStudents"><button class="list">List Students</button></a></li>
+        </ul>
+    </nav>
+
+    <div class="home-container">
+        <div class="contents">
+            <div class="welcome-title">
+                <h2>Login!!</h2>
+            </div>
+            <div class="sub-title text-body-secondary">
+                <h6>*Kindly login to Edit/Delete Student details*</h6>
+            </div>
+            <div class="alert alert-danger text-center" role="alert"
+                             th:if="${message}">
+                            <span th:text="${message}"></span>
+                            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert"
+                                    type="button"></button>
+            </div>
+            <div class="form text-start">
+            	<form th:action="@{/process-login}" th:method="post" autocomplete="off" th:object="${user}">
+				  <div class="mb-4 mt-3">
+				    <label for="username" class="form-label">UserName</label>
+				    <input type="text" name="userName" th:field="*{userName}" class="form-control" id="username">
+				  </div>
+				  <div class="mb-4">
+				    <label for="password" class="form-label">Password</label>
+				    <input type="password" name="password" th:field="*{password}" class="form-control" id="password">
+				  </div>
+				  <div class="button mt-5">
+					  	<button type="submit" class="submit btn bg-primary text-white">Login</button>
+				  </div>
+				  
+				</form>
+            </div>
+         </div>
+    </div>
+    <script>
+        function myFunction() {
+          var elms = document.getElementsByClassName("home-container");
+          console.log("checked");
+            Array.from(elms).forEach((x) => {
+                if (x.style.display === "none") {
+                x.style.display = "block";
+                } else {
+                x.style.display = "none";
+                }
+            })
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+</body>
+</html>
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System - Login</title>
+    <link rel="stylesheet" href="/CSS/res_navStyle.css">
+    <link rel="stylesheet" href="/CSS/homeStyle.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto Slab|Roboto|Roboto Serif|Roboto Condensed">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <style>
+    	.card-form{
+    		font-family: "Roboto Slab", sans-serif;
+    	}
+    	.card-form input{
+    		border: 0.5px solid silver;
+    	}
+    </style>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg">
+	  <div class="container-fluid">
+	  <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+            <i class="material-icons" id="icon" onclick="myFunction()">menu</i>
+        </label>
+	    <label class="navbar-brand title text-white">Student Management System</label>
+	    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	      <span class="navbar-toggler-icon"></span>
+	    </button>
+	    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+	      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+	        <li class="nav-item">
+	          <a class="nav-link" href="/home"><button class="home">Home</button></a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/newStudent"><button class="new">Add Student</button></a>
+	        </li>
+	        <li class="nav-item">
+	          <a class="nav-link" href="/listStudents"><button class="list">List Students</button></a>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<header>
+		<div class="navbar navbar-expand-lg fixed-top navbar-dark">
+                <div class="container">
+                    <a href="/home" class="navbar-brand mb-0 title" id="title">Student Management System</a>
+
+                    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#myNavBar">
+                        <span><i class='bx bx-menu text-white' id="menu-icon"></i></span>
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="myNavBar">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item me-3 mb-2 mb-lg-0"><a href="/home" class="nav-link home text-dark">Home</a></li>
+                            <li class="nav-item me-3 mb-2 mb-lg-0"><a href="/newStudent" class="nav-link new">Add Student</a></li>
+                            <li class="nav-item me-3 mb-2 mb-lg-0"><a href="/listStudents" class="nav-link list">List Students</a></li>
+                        </ul>
+                    </div>
+                </div>
+        </div>
+    </header>
+    
+	<section>
+	<div class="container col-md-6 justify-content-center align-items-center p-lg-5 mt-4">
+		<div class="card card-form">
+		  <div class="card-body">
+		    <h2 class="card-title text-center">Login!!</h2>
+		    <h6 class="card-subtitle mb-2 mt-3 text-body-secondary text-center text-danger">*Kindly login to Edit/Delete Student details*</h6>
+		    <div class="alert alert-danger text-center" role="alert"
+                             th:if="${message}">
+                            <span th:text="${message}"></span>
+                            <button aria-label="Close" class="btn-close" data-bs-dismiss="alert"
+                                    type="button"></button>
+                        </div>
+		    <form th:action="@{/process-login}" th:method="post" autocomplete="off" th:object="${user}">
+			  <div class="mb-4 mt-3">
+			    <label for="username" class="form-label">UserName</label>
+			    <input type="text" name="userName" th:field="*{userName}" class="form-control" id="username">
+			  </div>
+			  <div class="mb-4">
+			    <label for="password" class="form-label">Password</label>
+			    <input type="password" name="password" th:field="*{password}" class="form-control" id="password">
+			  </div>
+			  <div class="text-center">
+			  <button type="submit" class="btn btn-primary">Login</button>
+			  </div>
+			</form>
+		  </div>
+		</div>
+	</div>
+	</section>
+    
+    <div class="p-5 text-center">
+    	<h2>Login</h2>
+    	${SPRING_SECURITY_LAST_EXCEPTION.message}
+    	
+    
+    </div>
+    
+    <script th:inline="javascript">
+        function myFunction() {
+          var elms = document.getElementsByClassName("tableList");
+          console.log("checked");
+            Array.from(elms).forEach((x) => {
+                if (x.style.display === "none") {
+                x.style.display = "block";
+                } else {
+                x.style.display = "none";
+                }
+            })
+        }
+ /*        window.onload = function(){
+        	
+
+        	var msg = [[${message}]];
+        	
+        	toastr.options = {
+        			  "closeButton": true,
+        			  "debug": false,
+        			  "newestOnTop": false,
+        			  "progressBar": false,
+        			  "positionClass": "toast-top-center",
+        			  "preventDuplicates": false,
+        			  "onclick": null,
+        			  "showDuration": "300",
+        			  "hideDuration": "1000",
+        			  "timeOut": "2500",
+        			  "extendedTimeOut": "1000",
+        			  "showEasing": "swing",
+        			  "hideEasing": "linear",
+        			  "showMethod": "fadeIn",
+        			  "hideMethod": "fadeOut"
+        			}
+        	
+        	if(msg.includes("registered")){
+        		Command: toastr["success"](msg)
+        	}else if(msg.includes("updated")){
+        		Command: toastr["success"](msg)
+        	}else if(msg.includes("deleted")){
+        		Command: toastr["success"](msg)
+        	}else if(msg.includes("wrong")){
+        		Command: toastr["warning"](msg)
+        	}else if(msg.includes("Error")){
+        		Command: toastr["error"](msg)
+        	}
+        	msg=null;
+        } */
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+    
+</body>
+</html> -->

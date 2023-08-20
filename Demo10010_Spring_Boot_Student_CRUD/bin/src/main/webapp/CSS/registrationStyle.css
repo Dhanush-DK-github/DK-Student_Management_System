@@ -1,0 +1,173 @@
+.container{
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 75%;
+    margin-top: 35px;
+    margin-left: 12.5%;
+    font-family: "Roboto Serif", sans-serif; 
+    background-color: whitesmoke;
+    border-radius: 6px;
+    padding: 20px 25px;
+    box-shadow: 0 2px 12px rgba(32, 32, 32, 0.3);
+    /* border: solid; */
+}
+
+.container header{
+    font-family: "Roboto", sans-serif;
+    font-size: 28px;
+    text-align: center;
+    justify-content: center;
+    font-weight: 600;
+    color: #111141;
+    padding-bottom: 8px;
+    border-bottom: 1px solid silver;
+    text-transform: uppercase;
+}
+
+
+.container form{
+    position: relative;
+    /* background-color: #fff; */
+    margin-top: 16px;
+    min-height: 450px;
+}
+
+.container form .details{
+    margin-top: 15px;
+}
+
+
+.container form .title{
+    display: block;
+    font-family: "Roboto Slab", sans-serif; 
+    font-size: 18px;
+    font-weight: 700;
+    margin: 6px 0;
+    margin-bottom: 15px;
+    color: #152e4d;
+
+}
+
+.container form .fields{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+form .fields .input-field{
+    display: flex;
+    width: calc(100%/ 3 - 15px);
+    flex-direction: column;
+    margin: 4px;
+
+}
+.input-field label{
+    font-size: 12px;
+    font-weight: 600;
+    color: #2e2e2e;
+
+}
+.input-field input, select{
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: #333;
+    border-radius: 5px;
+    border: 1px solid #aaa;
+    padding: 0 15px;
+    height: 38px;
+    margin: 8px 0;
+}
+
+.input-field input:is(:focus), select:is(:focus){
+    box-shadow: 0 3px 10px rgba(32, 32, 32, 0.3);
+}
+
+/* .details.college .fields .input-field:first-child{
+    width:100%;
+    color: aqua;
+} */
+
+.button{
+    /* background-color: aqua; */
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.container form button{
+    /* display: flex; */
+    align-items: center;
+    justify-content: center;
+    height: 45px;
+    /* max-width: 150px; */
+    width: 150px;
+    border: none;
+    outline: none;
+    color: #fff;
+    border-radius: 5px;
+    margin: 17px 0;
+    /* margin-left: 40%; */
+    background-color: #4070f4;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+
+form button:hover{
+    background-color: #265df2;
+}
+
+
+form .input-field label.required:after { 
+    content:" *"; 
+    color: red;
+}
+
+@media (max-width: 750px){
+    .container form{
+        overflow-y: scroll;
+    }
+
+    .container form::-webkit-scrollbar{
+        display: none;
+    }
+    form .fields .input-field{
+        width: calc(100% / 3 - 15px);
+    }
+}
+
+@media (max-width: 550px){
+    .header{
+        width:100%;
+        text-align: center;
+        justify-content: center;
+        /* background-color: aqua; */
+    }
+    .header header{
+        font-size: 18px;
+    }
+    .container form .title{
+        font-size: 14px;
+        font-weight: 600;
+    }
+    form .fields .input-field{
+        margin: 0;
+    }
+    form .fields .input-field{
+        width: 100%;
+    }
+
+    .container form button{
+        height: 30px;
+        max-width: 100px;
+        width: 80%;
+        margin: 17px 0;
+        margin-left: 0;
+        font-size: 14px;
+    }
+
+}
