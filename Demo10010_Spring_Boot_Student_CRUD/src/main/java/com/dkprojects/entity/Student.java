@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -21,8 +22,8 @@ import org.springframework.format.annotation.DateTimeFormat;
 public class Student {
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="studentID")
+	@GeneratedValue(generator = "STUD_SEQ", strategy = GenerationType.SEQUENCE)
+	@SequenceGenerator(name = "STUD_SEQ", sequenceName = "MY_STUD_SEQ", initialValue=1000, allocationSize=1)
 	private Integer id;
 	@Column(name="studentName")
 	private String name;
